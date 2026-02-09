@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בקשת ייעוץ עיצוב פנים</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f5f0 0%, #e8e6dd 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3d5a6b 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .form-content {
+            padding: 40px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 15px;
+        }
+
+        .required {
+            color: #c87a4c;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #fafafa;
+            direction: rtl;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #c87a4c;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(200, 122, 76, 0.1);
+        }
+
+        input[type="number"] {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* Remove arrows from number input */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            opacity: 1;
+            height: 40px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #c87a4c 0%, #a6593a 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(200, 122, 76, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 122, 76, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .helper-text {
+            font-size: 13px;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        .success-message {
+            display: none;
+            padding: 20px;
+            background: #d4edda;
+            border: 2px solid #c3e6cb;
+            border-radius: 10px;
+            color: #155724;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 26px;
+            }
+            
+            .form-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- ADD YOUR LOGO HERE -->
+            <img src="logo.png" alt="לוגו" class="logo">
+            <!-- If you don't have a logo yet, delete or comment out the line above -->
+            
+            <h1>התחילו את מסע העיצוב שלכם</h1>
+            <p>בואו ניצור יחד מרחב שמשקף את הסטייל הייחודי שלכם. מלאו את הטופס ונחזור אליכם תוך 24 שעות.</p>
+        </div>
+        
+        <form class="form-content" id="leadForm">
+            <div class="form-group">
+                <label for="name">שם מלא <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required placeholder="שם פרטי ושם משפחה">
+            </div>
+
+            <div class="form-group">
+                <label for="email">כתובת אימייל <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="example@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">מספר טלפון <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="050-1234567">
+            </div>
+
+            <div class="form-group">
+                <label for="roomNumber">מספר חדרים בדירה <span class="required">*</span></label>
+                <input type="number" id="roomNumber" name="roomNumber" required min="1" max="20" placeholder="3">
+                <p class="helper-text">כמה חדרים יש בדירה? (לא כולל מטבח, שירותים ומרפסות)</p>
+            </div>
+
+            <div class="form-group">
+                <label for="bedrooms">כמה חדרי שינה <span class="required">*</span></label>
+                <input type="number" id="bedrooms" name="bedrooms" required min="0" max="10" placeholder="2">
+                <p class="helper-text">כמה חדרי שינה יש בדירה?</p>
+            </div>
+
+            <button type="submit" class="submit-btn">שלחו בקשה לייעוץ</button>
+
+            <div class="success-message" id="successMessage">
+                ✓ תודה רבה! הבקשה שלכם התקבלה. ניצור איתכם קשר בקרוב!
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // REPLACE THIS WITH YOUR MAKE.COM WEBHOOK URL
+        const MAKE_WEBHOOK_URL = 'YOUR_MAKE_WEBHOOK_URL_HERE';
+        
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Disable submit button to prevent double submission
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'שולח...';
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                roomNumber: formData.get('roomNumber'),
+                bedrooms: formData.get('bedrooms'),
+                submittedAt: new Date().toISOString()
+            };
+            
+            try {
+                // Send to Make.com webhook
+                const response = await fetch(MAKE_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(function() {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                } else {
+                    alert('הייתה שגיאה בשליחת הטופס. אנא נסו שוב או צרו קשר ישיר.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('הייתה שגיאה בשליחת הטופס. אנא נסו שוב או צרו קשר ישיר.');
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'שלחו בקשה לייעוץ';
+            }
+        });
+    </script>
+</body>
+</html>
