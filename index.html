@@ -109,7 +109,6 @@
             font-weight: 500;
         }
 
-        /* Remove arrows from number input */
         input[type="number"]::-webkit-inner-spin-button,
         input[type="number"]::-webkit-outer-spin-button {
             opacity: 1;
@@ -163,11 +162,36 @@
             font-size: 16px;
         }
 
+        /* Consent checkbox styling */
+        .consent-wrap {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .consent-wrap input[type="checkbox"] {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            accent-color: #c87a4c;
+            flex: 0 0 auto;
+        }
+
+        .consent-text {
+            font-size: 14px;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
         @media (max-width: 600px) {
             .header h1 {
                 font-size: 26px;
             }
-            
+
             .form-content {
                 padding: 30px 20px;
             }
@@ -177,14 +201,11 @@
 <body>
     <div class="container">
         <div class="header">
-            <!-- ADD YOUR LOGO HERE -->
             <img src="logo.png" alt="לוגו" class="logo">
-            <!-- If you don't have a logo yet, delete or comment out the line above -->
-            
             <h1>התחילו את מסע העיצוב שלכם</h1>
             <p>בואו ניצור יחד מרחב שמשקף את הסטייל הייחודי שלכם. מלאו את הטופס ונחזור אליכם תוך 24 שעות.</p>
         </div>
-        
+
         <form class="form-content" id="leadForm">
             <div class="form-group">
                 <label for="name">שם מלא <span class="required">*</span></label>
@@ -202,15 +223,27 @@
             </div>
 
             <div class="form-group">
-                <label for="roomNumber">מספר חדרים בדירה <span class="required">*</span></label>
-                <input type="number" id="roomNumber" name="roomNumber" required min="1" max="20" placeholder="3">
-                <p class="helper-text">כמה חדרים יש בדירה? (לא כולל מטבח, שירותים ומרפסות)</p>
+                <label for="roomNumber">מספר דירה <span class="required">*</span></label>
+                <input type="number" id="roomNumber" name="roomNumber" required min="0" max="9999" placeholder="3">
+                <p class="helper-text">מה מספר הדירה?</p>
             </div>
 
             <div class="form-group">
                 <label for="bedrooms">כמה חדרי שינה <span class="required">*</span></label>
-                <input type="number" id="bedrooms" name="bedrooms" required min="0" max="10" placeholder="2">
+                <input type="number" id="bedrooms" name="bedrooms" required min="0" max="20" placeholder="2">
                 <p class="helper-text">כמה חדרי שינה יש בדירה?</p>
+            </div>
+
+            <div class="form-group">
+                <label>אישור דיוור <span class="required">*</span></label>
+                <div class="consent-wrap">
+                    <input type="checkbox" id="consent" name="consent" required checked>
+                    <div class="consent-text">
+                        בשליחת הטופס אני מסכים לקבלת מיילים מ Studio - i ועדכונים שיווקיים מעת לעת.
+                        ניתן להסיר את עצמך בכל עת באמצעות קישור ההסרה שיופיע בכל הודעה.
+                    </div>
+                </div>
+                <p class="helper-text">חובה לסמן כדי לשלוח את הטופס.</p>
             </div>
 
             <button type="submit" class="submit-btn">שלחו בקשה לייעוץ</button>
@@ -222,30 +255,28 @@
     </div>
 
     <script>
-        // REPLACE THIS WITH YOUR MAKE.COM WEBHOOK URL
-        const MAKE_WEBHOOK_URL = 'YOUR_MAKE_WEBHOOK_URL_HERE';
-        
+        const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/n1442ok7bh2bul0olsq3ajdr32jyoiaa';
+
         document.getElementById('leadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Disable submit button to prevent double submission
+
             const submitBtn = document.querySelector('.submit-btn');
             submitBtn.disabled = true;
             submitBtn.textContent = 'שולח...';
-            
-            // Get form data
+
             const formData = new FormData(this);
+
             const data = {
                 name: formData.get('name'),
                 email: formData.get('email'),
                 phone: formData.get('phone'),
                 roomNumber: formData.get('roomNumber'),
                 bedrooms: formData.get('bedrooms'),
+                consent: formData.get('consent') ? true : false,
                 submittedAt: new Date().toISOString()
             };
-            
+
             try {
-                // Send to Make.com webhook
                 const response = await fetch(MAKE_WEBHOOK_URL, {
                     method: 'POST',
                     headers: {
@@ -253,18 +284,17 @@
                     },
                     body: JSON.stringify(data)
                 });
-                
+
                 if (response.ok) {
-                    // Show success message
                     document.getElementById('successMessage').style.display = 'block';
-                    
-                    // Reset form
                     this.reset();
-                    
-                    // Scroll to success message
+
+                    // Keep consent checked even after reset
+                    const consentEl = document.getElementById('consent');
+                    if (consentEl) consentEl.checked = true;
+
                     document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Hide success message after 5 seconds
+
                     setTimeout(function() {
                         document.getElementById('successMessage').style.display = 'none';
                     }, 5000);
@@ -275,9 +305,8 @@
                 console.error('Error:', error);
                 alert('הייתה שגיאה בשליחת הטופס. אנא נסו שוב או צרו קשר ישיר.');
             } finally {
-                // Re-enable submit button
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'שלחו בקשה לייעוץ';
+                submitBtn.textContent = 'שלח';
             }
         });
     </script>
