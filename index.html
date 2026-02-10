@@ -1,314 +1,270 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>בקשת ייעוץ עיצוב פנים</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>בקשת ייעוץ עיצוב פנים</title>
 
-        body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f5f0 0%, #e8e6dd 100%);
-            min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f5f5f0 0%, #e8e6dd 100%);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3d5a6b 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
+.container {
+    max-width: 700px;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
 
-        .logo {
-            max-width: 200px;
-            height: auto;
-            margin-bottom: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.header {
+    background: linear-gradient(135deg, #2c3e50 0%, #3d5a6b 100%);
+    color: white;
+    padding: 50px 30px;
+    text-align: center;
+}
 
-        .header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
+.logo {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px auto;
+}
 
-        .header p {
-            font-size: 16px;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
 
-        .form-content {
-            padding: 40px 30px;
-        }
+.header p {
+    font-size: 16px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
 
-        .form-group {
-            margin-bottom: 25px;
-        }
+.form-content {
+    padding: 40px 30px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #2c3e50;
-            font-size: 15px;
-        }
+.form-group {
+    margin-bottom: 25px;
+}
 
-        .required {
-            color: #c87a4c;
-        }
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 15px;
+}
 
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="number"] {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            background: #fafafa;
-            direction: rtl;
-        }
+.required {
+    color: #c87a4c;
+}
 
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="tel"]:focus,
-        input[type="number"]:focus {
-            outline: none;
-            border-color: #c87a4c;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(200, 122, 76, 0.1);
-        }
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: inherit;
+    background: #fafafa;
+    direction: rtl;
+}
 
-        input[type="number"] {
-            text-align: center;
-            font-size: 18px;
-            font-weight: 500;
-        }
+input:focus {
+    outline: none;
+    border-color: #c87a4c;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(200, 122, 76, 0.1);
+}
 
-        input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            opacity: 1;
-            height: 40px;
-        }
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #c87a4c 0%, #a6593a 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
 
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #c87a4c 0%, #a6593a 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(200, 122, 76, 0.3);
-        }
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(200, 122, 76, 0.4);
-        }
+.helper-text {
+    font-size: 13px;
+    color: #666;
+    margin-top: 6px;
+}
 
-        .submit-btn:active {
-            transform: translateY(0);
-        }
+.success-message {
+    display: none;
+    padding: 20px;
+    background: #d4edda;
+    border: 2px solid #c3e6cb;
+    border-radius: 10px;
+    color: #155724;
+    text-align: center;
+    margin-top: 20px;
+}
 
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
+.consent-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: #fafafa;
+}
 
-        .helper-text {
-            font-size: 13px;
-            color: #666;
-            margin-top: 6px;
-        }
+.consent-wrap input[type="checkbox"] {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    accent-color: #c87a4c;
+}
 
-        .success-message {
-            display: none;
-            padding: 20px;
-            background: #d4edda;
-            border: 2px solid #c3e6cb;
-            border-radius: 10px;
-            color: #155724;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 16px;
-        }
+.consent-text {
+    font-size: 14px;
+    color: #2c3e50;
+    line-height: 1.5;
+}
 
-        /* Consent checkbox styling */
-        .consent-wrap {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 14px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            background: #fafafa;
-        }
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 26px;
+    }
 
-        .consent-wrap input[type="checkbox"] {
-            margin-top: 3px;
-            width: 18px;
-            height: 18px;
-            accent-color: #c87a4c;
-            flex: 0 0 auto;
-        }
+    .form-content {
+        padding: 30px 20px;
+    }
 
-        .consent-text {
-            font-size: 14px;
-            color: #2c3e50;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 26px;
-            }
-
-            .form-content {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+    .logo {
+        max-width: 100%;
+    }
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="logo.png" alt="לוגו" class="logo">
-            <h1>התחילו את מסע העיצוב שלכם</h1>
-            <p>בואו ניצור יחד מרחב שמשקף את הסטייל הייחודי שלכם. מלאו את הטופס ונחזור אליכם בימים הקרובים.</p>
-        </div>
 
-        <form class="form-content" id="leadForm">
-            <div class="form-group">
-                <label for="name">שם מלא <span class="required">*</span></label>
-                <input type="text" id="name" name="name" required placeholder="שם פרטי ושם משפחה">
-            </div>
-
-            <div class="form-group">
-                <label for="email">כתובת אימייל <span class="required">*</span></label>
-                <input type="email" id="email" name="email" required placeholder="example@email.com">
-            </div>
-
-            <div class="form-group">
-                <label for="phone">מספר טלפון <span class="required">*</span></label>
-                <input type="tel" id="phone" name="phone" required placeholder="050-1234567">
-            </div>
-
-            <div class="form-group">
-                <label for="roomNumber">מספר דירה <span class="required">*</span></label>
-                <input type="number" id="roomNumber" name="roomNumber" required min="0" max="9999" placeholder="3">
-                <p class="helper-text">מה מספר הדירה?</p>
-            </div>
-
-            <div class="form-group">
-                <label for="bedrooms">כמה חדרי שינה <span class="required">*</span></label>
-                <input type="number" id="bedrooms" name="bedrooms" required min="0" max="20" placeholder="2">
-                <p class="helper-text">כמה חדרי שינה יש בדירה?</p>
-            </div>
-
-            <div class="form-group">
-                <label>אישור דיוור <span class="required">*</span></label>
-                <div class="consent-wrap">
-                    <input type="checkbox" id="consent" name="consent" required checked>
-                    <div class="consent-text">
-                        בשליחת הטופס אני מסכים לקבלת מיילים מ Studio - i ועדכונים שיווקיים מעת לעת.
-                        ניתן להסיר את עצמך בכל עת באמצעות קישור ההסרה שיופיע בכל הודעה.
-                    </div>
-                </div>
-                <p class="helper-text">חובה לסמן כדי לשלוח את הטופס.</p>
-            </div>
-
-            <button type="submit" class="submit-btn">שלחו בקשה לייעוץ</button>
-
-            <div class="success-message" id="successMessage">
-                ✓ תודה רבה! הבקשה שלכם התקבלה. ניצור איתכם קשר בקרוב!
-            </div>
-        </form>
+<div class="container">
+    <div class="header">
+        <img src="logo.gif" alt="לוגו" class="logo">
+        <h1>התחילו את מסע העיצוב שלכם</h1>
+        <p>בואו ניצור יחד מרחב שמשקף את הסטייל הייחודי שלכם. מלאו את הטופס ונחזור אליכם בימים הקרובים.</p>
     </div>
 
-    <script>
-        const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/n1442ok7bh2bul0olsq3ajdr32jyoiaa';
+    <form class="form-content" id="leadForm">
 
-        document.getElementById('leadForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
+        <div class="form-group">
+            <label>שם מלא <span class="required">*</span></label>
+            <input type="text" name="name" required>
+        </div>
 
-            const submitBtn = document.querySelector('.submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'שולח...';
+        <div class="form-group">
+            <label>כתובת אימייל <span class="required">*</span></label>
+            <input type="email" name="email" required>
+        </div>
 
-            const formData = new FormData(this);
+        <div class="form-group">
+            <label>מספר טלפון <span class="required">*</span></label>
+            <input type="tel" name="phone" required>
+        </div>
 
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                roomNumber: formData.get('roomNumber'),
-                bedrooms: formData.get('bedrooms'),
-                consent: formData.get('consent') ? true : false,
-                submittedAt: new Date().toISOString()
-            };
+        <div class="form-group">
+            <label>מספר דירה <span class="required">*</span></label>
+            <input type="number" name="roomNumber" required>
+        </div>
 
-            try {
-                const response = await fetch(MAKE_WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
+        <div class="form-group">
+            <label>כמה חדרי שינה <span class="required">*</span></label>
+            <input type="number" name="bedrooms" required>
+        </div>
 
-                if (response.ok) {
-                    document.getElementById('successMessage').style.display = 'block';
-                    this.reset();
+        <div class="form-group">
+            <label>אישור דיוור <span class="required">*</span></label>
+            <div class="consent-wrap">
+                <input type="checkbox" name="consent" required checked>
+                <div class="consent-text">
+                    בשליחת הטופס אני מסכים לקבלת מיילים ועדכונים שיווקיים מעת לעת.
+                </div>
+            </div>
+        </div>
 
-                    // Keep consent checked even after reset
-                    const consentEl = document.getElementById('consent');
-                    if (consentEl) consentEl.checked = true;
+        <button type="submit" class="submit-btn">שלחו בקשה לייעוץ</button>
 
-                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+        <div class="success-message" id="successMessage">
+            תודה רבה! הבקשה התקבלה.
+        </div>
 
-                    setTimeout(function() {
-                        document.getElementById('successMessage').style.display = 'none';
-                    }, 5000);
-                } else {
-                    alert('הייתה שגיאה בשליחת הטופס. אנא נסו שוב או צרו קשר ישיר.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('הייתה שגיאה בשליחת הטופס. אנא נסו שוב או צרו קשר ישיר.');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'שלח';
-            }
+    </form>
+</div>
+
+<script>
+const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/n1442ok7bh2bul0olsq3ajdr32jyoiaa';
+
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = document.querySelector('.submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'שולח...';
+
+    const formData = new FormData(this);
+
+    const data = Object.fromEntries(formData.entries());
+    data.consent = formData.get('consent') ? true : false;
+    data.submittedAt = new Date().toISOString();
+
+    try {
+        const response = await fetch(MAKE_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
         });
-    </script>
+
+        if (response.ok) {
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+        } else {
+            alert('שגיאה בשליחה');
+        }
+
+    } catch (err) {
+        alert('שגיאה בשליחה');
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'שלחו בקשה לייעוץ';
+});
+</script>
+
 </body>
 </html>
