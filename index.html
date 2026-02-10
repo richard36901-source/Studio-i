@@ -34,28 +34,55 @@ body {
 .header {
     background: linear-gradient(135deg, #2c3e50 0%, #3d5a6b 100%);
     color: white;
-    padding: 50px 30px;
     text-align: center;
+    overflow: hidden;
 }
 
-.logo {
+.hero-media {
     width: 100%;
-    max-width: 520px;
-    height: auto;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    margin: 0 auto 30px auto;
 }
 
-.header h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-    font-weight: 600;
+.header-text {
+    padding: 26px 28px 34px 28px;
 }
 
-.header p {
+.header-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    line-height: 1.25;
+}
+
+.header-paragraph {
     font-size: 16px;
-    opacity: 0.9;
-    line-height: 1.6;
+    opacity: 0.95;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+.header-paragraph:last-of-type {
+    margin-bottom: 0;
+}
+
+.header-highlight {
+    margin-top: 14px;
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-weight: 700;
+    font-size: 15px;
 }
 
 .form-content {
@@ -94,43 +121,15 @@ input[type="number"] {
 
 input:focus {
     outline: none;
-    border-color: #c87a4c;
+    border-color: #2c3e50;
     background: white;
-    box-shadow: 0 0 0 3px rgba(200, 122, 76, 0.1);
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, #c87a4c 0%, #a6593a 100%);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.submit-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+    box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.12);
 }
 
 .helper-text {
     font-size: 13px;
     color: #666;
     margin-top: 6px;
-}
-
-.success-message {
-    display: none;
-    padding: 20px;
-    background: #d4edda;
-    border: 2px solid #c3e6cb;
-    border-radius: 10px;
-    color: #155724;
-    text-align: center;
-    margin-top: 20px;
 }
 
 .consent-wrap {
@@ -147,7 +146,7 @@ input:focus {
     margin-top: 3px;
     width: 18px;
     height: 18px;
-    accent-color: #c87a4c;
+    accent-color: #2c3e50;
 }
 
 .consent-text {
@@ -156,17 +155,53 @@ input:focus {
     line-height: 1.5;
 }
 
-@media (max-width: 600px) {
-    .header h1 {
-        font-size: 26px;
-    }
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    box-shadow: 0 10px 24px rgba(44, 62, 80, 0.28);
+}
 
+.submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(44, 62, 80, 0.34);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.success-message {
+    display: none;
+    padding: 20px;
+    background: #d4edda;
+    border: 2px solid #c3e6cb;
+    border-radius: 10px;
+    color: #155724;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
     .form-content {
         padding: 30px 20px;
     }
 
-    .logo {
-        max-width: 100%;
+    .hero-media {
+        height: 220px;
+    }
+
+    .header-title {
+        font-size: 24px;
     }
 }
 </style>
@@ -176,58 +211,72 @@ input:focus {
 
 <div class="container">
     <div class="header">
-        <img src="logo.gif" alt="לוגו" class="logo">
-        <h1>התחילו את מסע העיצוב שלכם</h1>
-        <p>אתם מביאים את החזון, אנחנו הופכים אותו למציאות.
+        <div class="hero-media">
+            <img src="logo.gif" alt="Studio I">
+        </div>
 
-בדירות קבלן יוקרתיות, כל החלטה חשובה.
-אנחנו ב-Studio I מלווים אתכם משלב החזון ועד לדירה מתוכננת, מדויקת ונכונה לכם.
+        <div class="header-text">
+            <div class="header-title">אתם מביאים את החזון, אנחנו הופכים אותו למציאות.</div>
 
-מלאו את הטופס ונחזור אליכם לפגישת היכרות אישית ללא עלות.
-*הטבה מיוחדת למשתתפי הכנס*</p>
+            <div class="header-paragraph">
+                בדירות קבלן יוקרתיות, כל החלטה חשובה.
+                <br>
+                אנחנו ב Studio I מלווים אתכם משלב החזון ועד לדירה מתוכננת, מדויקת ונכונה לכם.
+            </div>
+
+            <div class="header-paragraph">
+                מלאו את הטופס ונחזור אליכם לפגישת היכרות אישית ללא עלות.
+            </div>
+
+            <div class="header-highlight">הטבה מיוחדת למשתתפי הכנס</div>
+        </div>
     </div>
 
     <form class="form-content" id="leadForm">
 
         <div class="form-group">
             <label>שם מלא <span class="required">*</span></label>
-            <input type="text" name="name" required>
+            <input type="text" name="name" required placeholder="שם פרטי ושם משפחה">
         </div>
 
         <div class="form-group">
             <label>כתובת אימייל <span class="required">*</span></label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" required placeholder="example@email.com">
         </div>
 
         <div class="form-group">
             <label>מספר טלפון <span class="required">*</span></label>
-            <input type="tel" name="phone" required>
+            <input type="tel" name="phone" required placeholder="0501234567">
         </div>
 
         <div class="form-group">
             <label>מספר דירה <span class="required">*</span></label>
-            <input type="number" name="roomNumber" required>
+            <input type="number" name="roomNumber" required min="0" max="9999" placeholder="3">
+            <p class="helper-text">מה מספר הדירה</p>
         </div>
 
         <div class="form-group">
             <label>כמה חדרי שינה <span class="required">*</span></label>
-            <input type="number" name="bedrooms" required>
+            <input type="number" name="bedrooms" required min="0" max="20" placeholder="2">
+            <p class="helper-text">כמה חדרי שינה יש בדירה</p>
         </div>
 
         <div class="form-group">
             <label>אישור דיוור <span class="required">*</span></label>
             <div class="consent-wrap">
-                <input type="checkbox" name="consent" required checked>
+                <input type="checkbox" id="consent" name="consent" required checked>
                 <div class="consent-text">
                     בשליחת הטופס אני מסכים לקבלת מיילים ועדכונים שיווקיים מעת לעת.
+                    ניתן להסיר את עצמך בכל עת באמצעות קישור ההסרה שיופיע בכל הודעה.
                 </div>
             </div>
+            <p class="helper-text">חובה לסמן כדי לשלוח את הטופס</p>
         </div>
 
         <button type="submit" class="submit-btn">שלחו בקשה לייעוץ</button>
 
         <div class="success-message" id="successMessage">
-            תודה רבה! הבקשה התקבלה.
+            תודה רבה! הבקשה התקבלה. ניצור קשר בקרוב.
         </div>
 
     </form>
@@ -240,14 +289,22 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
     e.preventDefault();
 
     const btn = document.querySelector('.submit-btn');
+    const originalText = btn.textContent;
+
     btn.disabled = true;
     btn.textContent = 'שולח...';
 
     const formData = new FormData(this);
 
-    const data = Object.fromEntries(formData.entries());
-    data.consent = formData.get('consent') ? true : false;
-    data.submittedAt = new Date().toISOString();
+    const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        roomNumber: formData.get('roomNumber'),
+        bedrooms: formData.get('bedrooms'),
+        consent: formData.get('consent') ? true : false,
+        submittedAt: new Date().toISOString()
+    };
 
     try {
         const response = await fetch(MAKE_WEBHOOK_URL, {
@@ -259,16 +316,24 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
         if (response.ok) {
             document.getElementById('successMessage').style.display = 'block';
             this.reset();
+
+            const consentEl = document.getElementById('consent');
+            if (consentEl) consentEl.checked = true;
+
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
         } else {
-            alert('שגיאה בשליחה');
+            alert('הייתה שגיאה בשליחת הטופס. נסו שוב או צרו קשר ישיר.');
         }
-
     } catch (err) {
-        alert('שגיאה בשליחה');
+        alert('הייתה שגיאה בשליחת הטופס. נסו שוב או צרו קשר ישיר.');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
     }
-
-    btn.disabled = false;
-    btn.textContent = 'שלחו בקשה לייעוץ';
 });
 </script>
 
