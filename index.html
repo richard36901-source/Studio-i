@@ -13,13 +13,12 @@
 }
 
 body {
-    font-family: 'Segoe UI', 'Arial', sans-serif';
+    font-family: 'Segoe UI', 'Arial', sans-serif;
     min-height: 100vh;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: url("background.png") no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
@@ -120,10 +119,24 @@ input:focus {
     box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.12);
 }
 
-.helper-text {
-    font-size: 13px;
-    color: #666;
-    margin-top: 6px;
+.radio-wrap {
+    display: flex;
+    gap: 20px;
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+.radio-wrap label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.radio-wrap input {
+    accent-color: #2c3e50;
 }
 
 .consent-wrap {
@@ -192,7 +205,7 @@ input:focus {
             <div class="header-title">החלל שלכם, התשוקה שלנו.</div>
 
             <div class="header-paragraph">
-                מלאו את הטופס ונחזור אליכם לפגישת היכרות אישית ללא עלות.
+                מלאו את הטופס ונחזור אליכם לפגישת היכרות אישית.
             </div>
 
             <div class="header-highlight">
@@ -226,6 +239,21 @@ input:focus {
         <div class="form-group">
             <label>כמה חדרי שינה <span class="required">*</span></label>
             <input type="number" name="bedrooms" required>
+        </div>
+
+        <!-- NEW FIELD -->
+        <div class="form-group">
+            <label>מתי נוח שנחזור אליכם? <span class="required">*</span></label>
+            <div class="radio-wrap">
+                <label>
+                    <input type="radio" name="callbackTime" value="בוקר" required>
+                    בוקר
+                </label>
+                <label>
+                    <input type="radio" name="callbackTime" value="צהריים" required>
+                    צהריים
+                </label>
+            </div>
         </div>
 
         <div class="form-group">
